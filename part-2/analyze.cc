@@ -1,10 +1,10 @@
-// Tuffy Titan
+// Grace Lee
 // CPSC 120-01
-// 2050-01-01
-// tuffy.titan@csu.fullerton.edu
-// @tuffytitan
+// 2020-12-14
+// grace1@csu.fullerton.edu
+// @gracelee2
 //
-// Lab 00-00
+// Lab 13-02
 //
 // Calculates the BMR of a person using the Mifflin St Jeor equation.
 //
