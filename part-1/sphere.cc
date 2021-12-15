@@ -1,14 +1,25 @@
+// Grace Lee
+// CPSC 120-01
+// 2021-10-28
+// grace1@csu.fullerton.edu
+// @gracelee2
+//
+// Lab 08-01
+//
+// This program makes the sphere
+//
+/// \file
 
 #include "sphere.h"
 
 #include "utility.h"
 
 Point3 Sphere::center() const {
-    // TODO: Implement this member function.
+  return center_;
 }
 
 double Sphere::radius() const {
-  // TODO: Implement this member function.
+  return radius_;
 }
 
 bool Sphere::hit(const Ray& r, double t_min, double t_max,
@@ -55,6 +66,6 @@ bool Sphere::hit(const Ray& r, double t_min, double t_max,
 }
 
 std::ostream& operator<<(std::ostream& out, const Sphere& s) {
-  // TODO: Implement this member function.
+  out << "Sphere(center=(" << s.center() << "), radius=" << s.radius() << "\n";
   return out;
 }

@@ -1,3 +1,14 @@
+// Grace Lee
+// CPSC 120-01
+// 2021-10-28
+// grace1@csu.fullerton.edu
+// @gracelee2
+//
+// Lab 08-01
+//
+// This is the main function, makes a picture of spheres
+//
+/// \file
 
 #include <Magick++.h>
 
@@ -32,7 +43,7 @@ Color RayColor(const Ray& r, const Sphere& world) {
     // This is the base color of the sphere. You may set this color
     // to whatever you like.
     // TODO: set the color of the sphere to something you like.
-    ColorRGB sphere_color(1, 1, 0);
+    ColorRGB sphere_color(.5, .3, 1);
     // These are the values that are in the README for the coefficients for our shading equation.
     const double kAmbientReflection = 0.3;
     const double kDiffuseReflection = 0.7;
@@ -48,24 +59,25 @@ Color RayColor(const Ray& r, const Sphere& world) {
     // the unit vector from rec.p to the viewer
     // the reflection vector of the light around the surface normal
     // It's important that these are all unit vectors.
-    Vec3 to_light_vector;
-    Vec3 unit_normal;
-    Vec3 to_viewer;
-    Vec3 reflection;
+    Vec3 to_light_vector = UnitVector(light - r.at(root);
+    Vec3 unit_normal = UnitVector((rec.at(root) - center_) / radius_;);
+    Vec3 to_viewer = UnitVector(-rec.at(root));
+    Vec3 reflection = Reflect(to_light_vector, unit_normal);
 
     // TODO: Calculate the ambient color
-    ColorRGB phong_ambient;
+    ColorRGB phong_ambient = kAmbientReflection * sphere_color;
     // TODO: Calculate the dot product between l and n
-    double l_dot_n;
+    double l_dot_n = std::max(Dot(to_light_vector, unit_normal), 0.0);
     // TODO: Calcualte the diffuse reflection
-    ColorRGB phong_diffuse;
+    ColorRGB phong_diffuse = kDiffuseReflection * l_dot_n * sphere_color;
 
     double r_dot_v = std::max(Dot(reflection, to_viewer), 0.0);
 
     double r_dot_v_to_alpha = std::pow(r_dot_v, kSpecularShininess);
 
     // TODO: Calculate the specular reflection (the shiny spot)
-    ColorRGB phong_specular;
+    ColorRGB phong_specular =
+        kSpecularReflection * r_dot_v_to_alpha * sphere_color;
     // Sum up the three types of relfection
     ColorRGB phong = phong_ambient + phong_diffuse + phong_specular;
     // Clamp the color to be between 0 and 1
