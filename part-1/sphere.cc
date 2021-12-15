@@ -14,13 +14,9 @@
 
 #include "utility.h"
 
-Point3 Sphere::center() const {
-  return center_;
-}
+Point3 Sphere::center() const { return center_; }
 
-double Sphere::radius() const {
-  return radius_;
-}
+double Sphere::radius() const { return radius_; }
 
 bool Sphere::hit(const Ray& r, double t_min, double t_max,
                  HitRecord& rec) const {

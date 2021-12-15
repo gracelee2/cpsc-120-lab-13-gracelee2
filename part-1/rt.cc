@@ -44,7 +44,8 @@ Color RayColor(const Ray& r, const Sphere& world) {
     // to whatever you like.
     // TODO: set the color of the sphere to something you like.
     ColorRGB sphere_color(.5, .3, 1);
-    // These are the values that are in the README for the coefficients for our shading equation.
+    // These are the values that are in the README for the coefficients for our
+    // shading equation.
     const double kAmbientReflection = 0.3;
     const double kDiffuseReflection = 0.7;
     const double kSpecularReflection = 0.5;
@@ -53,22 +54,20 @@ Color RayColor(const Ray& r, const Sphere& world) {
     // set the color to be the
     Vec3 light{1, -1, 0.25};
 
-    // TODO: Calculate the following:
     // the vector to the light
     // the unit normal at the interection point rec.p
     // the unit vector from rec.p to the viewer
     // the reflection vector of the light around the surface normal
     // It's important that these are all unit vectors.
-    Vec3 to_light_vector = UnitVector(light - r.at(root);
-    Vec3 unit_normal = UnitVector((rec.at(root) - center_) / radius_;);
-    Vec3 to_viewer = UnitVector(-rec.at(root));
+    Vec3 to_light_vector = UnitVector(light - rec.p);
+    Vec3 unit_normal = UnitVector(rec.normal);
+    Vec3 to_viewer = UnitVector(-rec.p);
     Vec3 reflection = Reflect(to_light_vector, unit_normal);
 
-    // TODO: Calculate the ambient color
     ColorRGB phong_ambient = kAmbientReflection * sphere_color;
-    // TODO: Calculate the dot product between l and n
+
     double l_dot_n = std::max(Dot(to_light_vector, unit_normal), 0.0);
-    // TODO: Calcualte the diffuse reflection
+
     ColorRGB phong_diffuse = kDiffuseReflection * l_dot_n * sphere_color;
 
     double r_dot_v = std::max(Dot(reflection, to_viewer), 0.0);
